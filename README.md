@@ -4,13 +4,13 @@ Key pooling library to circumvent rate limits.
 
 ## Install
 
-```
+```bash
 $ go get github.com/simplyianm/keypool
 ```
 
 ## Usage
 
-```
+```go
 keys := []string{"a", "b", "c"}
 // Create a key pool with the given keys
 // with no less than 10ms gap between using a key

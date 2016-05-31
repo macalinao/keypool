@@ -1,9 +1,6 @@
 package keypool
 
-import (
-	"sync"
-	"time"
-)
+import "time"
 
 // Key represents an API key
 type Key struct {
@@ -13,9 +10,8 @@ type Key struct {
 
 // Keypool stores keys
 type Keypool struct {
-	Keys  chan *Key
-	Rate  time.Duration
-	Mutex sync.Mutex
+	Keys chan *Key
+	Rate time.Duration
 }
 
 // New creates a new key

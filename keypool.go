@@ -10,9 +10,11 @@ type Key struct {
 }
 
 // Return puts a key back into the pool
-func (k *Key) Return() {
+func (k *Key) Return() string {
+	v := k.Value
 	k.lastUsed = time.Now()
 	k.pool.keys <- k
+	return v
 }
 
 // Keypool stores keys

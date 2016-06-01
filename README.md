@@ -16,9 +16,12 @@ keys := []string{"a", "b", "c"}
 // with no less than 10ms gap between using a key
 pool := keypool.New(keys, 10*time.Millisecond)
 
-pool.Fetch() // returns "a"
-pool.Fetch() // returns "b"
-pool.Fetch() // returns "c"
+key := pool.Fetch()
+key.Value // "a"
+pool.Fetch()
+pool.Fetch()
+
+key.Return() // Returns "a" back to the key pool
 pool.Fetch() // returns "a" after at least 10ms has elapsed since "a" was first retrieved
 ```
 
